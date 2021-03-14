@@ -1,6 +1,6 @@
-# i_am_rich
+# my_card
 
-A new Flutter application.
+My virtual business card
 
 ## Getting Started
 
