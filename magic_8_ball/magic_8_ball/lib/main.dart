@@ -28,7 +28,7 @@ class Ball extends StatefulWidget {
 }
 
 class _BallState extends State<Ball> {
-  int ballNumber = 0;
+  int ballNumber = 1;
 
   @override
   Widget build(BuildContext context) {
