@@ -1,16 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
+import 'constants.dart';
 
-const bottomContainerHeight = 80.0;
-const containerColor = Color(0xFF1D1E33);
-const bottomContainerColor = Color(0xFFEB1555);
-const maleIcon = FontAwesomeIcons.mars;
-const femaleIcon = FontAwesomeIcons.venus;
-const maleTxt = 'MALE';
-const femaleTxt = 'FEMALE';
+enum Gender {
+  male,
+  female,
+}
 
 class InputPage extends StatefulWidget {
   @override
@@ -18,6 +15,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Gender selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +34,14 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    myColor: containerColor,
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    myColor: selectedGender == Gender.male
+                        ? activeCardColor
+                        : inactiveCardColor,
                     cardChild: IconContent(
                       genderIcon: maleIcon,
                       genderText: maleTxt,
@@ -44,7 +50,14 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    myColor: containerColor,
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    myColor: selectedGender == Gender.female
+                        ? activeCardColor
+                        : inactiveCardColor,
                     cardChild: IconContent(
                       genderIcon: femaleIcon,
                       genderText: femaleTxt,
@@ -56,7 +69,10 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReusableCard(
-              myColor: containerColor,
+              myColor: inactiveCardColor,
+              cardChild: Column(children: <Widget>[
+                Text('HEIGHT'),
+              ]),
             ),
           ),
           Expanded(
@@ -64,12 +80,12 @@ class _InputPageState extends State<InputPage> {
             children: <Widget>[
               Expanded(
                 child: ReusableCard(
-                  myColor: containerColor,
+                  myColor: inactiveCardColor,
                 ),
               ),
               Expanded(
                 child: ReusableCard(
-                  myColor: containerColor,
+                  myColor: inactiveCardColor,
                 ),
               ),
             ],
