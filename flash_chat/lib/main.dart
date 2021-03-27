@@ -7,8 +7,6 @@ import 'package:flash_chat/screens/chat_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/login_screen.dart';
-import 'screens/login_screen.dart';
-import 'screens/registration_screen.dart';
 import 'screens/registration_screen.dart';
 import 'screens/welcome_screen.dart';
 
@@ -19,11 +17,6 @@ class FlashChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        textTheme: TextTheme(
-          bodyText2: TextStyle(color: Colors.black54),
-        ),
-      ),
       initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
