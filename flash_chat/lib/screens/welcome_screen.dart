@@ -5,8 +5,6 @@ import 'registration_screen.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import '../components/rounded_button.dart';
 
-import 'registration_screen.dart';
-
 class WelcomeScreen extends StatefulWidget {
   static const String id = 'welcome_screen';
 
